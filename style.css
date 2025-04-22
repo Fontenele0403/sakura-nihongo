@@ -1,0 +1,75 @@
+body {
+  margin: 0;
+  font-family: 'Zen Kaku Gothic New', sans-serif;
+  background-color: #fff0f5;
+  color: #4a4a4a;
+  overflow-x: hidden;
+}
+
+header {
+  background-color: #fce4ec;
+  padding: 20px;
+  text-align: center;
+  position: sticky;
+  top: 0;
+  z-index: 2;
+}
+
+header h1 {
+  margin: 0;
+  color: #d81b60;
+}
+
+nav {
+  margin-top: 10px;
+}
+
+nav a {
+  margin: 0 10px;
+  text-decoration: none;
+  color: #880e4f;
+  font-weight: bold;
+}
+
+.welcome {
+  text-align: center;
+  padding: 40px 20px;
+}
+
+.topics {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 20px;
+}
+
+.card {
+  background-color: #f8bbd0;
+  border-radius: 10px;
+  margin: 10px;
+  padding: 30px;
+  width: 200px;
+  text-align: center;
+  font-size: 20px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.card:hover {
+  background-color: #f06292;
+  color: white;
+}
+
+footer {
+  text-align: center;
+  padding: 20px;
+  background-color: #fce4ec;
+  position: relative;
+  z-index: 1;
+}
+
+footer a {
+  margin: 0 10px;
+  color: #ad1457;
+  text-decoration: none;
+}
