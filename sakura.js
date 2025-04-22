@@ -50,7 +50,14 @@ function animate() {
 initPetals();
 animate();
 
-window.addEventListener('resize', () => {
-  canvas.width = window.innerWidth;
-  canvas.height = window.innerHeight;
-});
+<script>
+  let header = document.getElementById("header");
+
+  window.addEventListener("scroll", function () {
+    if (window.scrollY > 100) {
+      header.classList.add("mostrar");
+    } else {
+      header.classList.remove("mostrar");
+    }
+  });
+</script>
