@@ -29,6 +29,67 @@ header h1 {
   font-size: 1.8rem;
 }
 
+.menu-toggle {
+  display: none;
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  font-size: 1.5rem;
+  background: none;
+  border: none;
+  color: #d81b60;
+  cursor: pointer;
+}
+
+nav {
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+nav a {
+  text-decoration: none;
+  color: #d81b60;
+  font-weight: bold;
+  padding: 8px 12px;
+  border-radius: 8px;
+  transition: background-color 0.2s ease;
+}
+
+nav a:hover {
+  background-color: #f8bbd0;
+}
+
+@media (max-width: 600px) {
+  header h1 {
+    font-size: 1.4rem;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+
+  nav {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    margin-top: 50px;
+  }
+
+  nav.active {
+    display: flex;
+  }
+
+  nav a {
+    width: 100%;
+    max-width: 200px;
+    text-align: center;
+  }
+}
+
 .galeria {
   padding: 40px 20px;
   background-color: #fff0f5;
@@ -59,46 +120,6 @@ header h1 {
 
 .imagens img:hover {
   transform: scale(1.05);
-}
-
-nav {
-  margin-top: 10px;
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 15px;
-}
-
-nav a {
-  text-decoration: none;
-  color: #d81b60;
-  font-weight: bold;
-  padding: 8px 12px;
-  border-radius: 8px;
-  transition: background-color 0.2s ease;
-}
-
-nav a:hover {
-  background-color: #f8bbd0;
-}
-
-/* Responsividade */
-@media (max-width: 600px) {
-  header h1 {
-    font-size: 1.4rem;
-  }
-
-  nav {
-    flex-direction: column;
-    align-items: center;
-    gap: 10px;
-  }
-
-  nav a {
-    width: 100%;
-    max-width: 200px;
-    text-align: center;
-  }
 }
 
 .welcome {
