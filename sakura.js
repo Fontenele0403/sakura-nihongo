@@ -50,11 +50,7 @@ function animate() {
 initPetals();
 animate();
 
-window.addEventListener('scroll', function () {
-  const nav = document.querySelector('nav');
-  if (window.scrollY > 100) {
-    nav.classList.add('mostrar');
-  } else {
-    nav.classList.remove('mostrar');
-  }
+window.addEventListener('resize', () => {
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
 });
