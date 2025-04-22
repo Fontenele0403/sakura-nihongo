@@ -38,18 +38,17 @@ nav {
 
 nav.mostrar {
   display: flex;
-nav a {
-  text-decoration: none;
-  color: #333;
-  font-size: 16px;
-  padding: 8px 12px;
-  border-radius: 4px;
-  transition: background-color 0.3s;
+nav {
+  margin-top: 10px;
 }
 
-nav a:hover {
-  background-color: #f0f0f0;
+nav a {
+  margin: 0 10px;
+  text-decoration: none;
+  color: #880e4f;
+  font-weight: bold;
 }
+
 
 .welcome {
   text-align: center;
