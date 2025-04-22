@@ -47,5 +47,18 @@
 
   <canvas id="sakura"></canvas>
   <script src="sakura.js"></script>
+
+  <script>
+  const header = document.getElementById("header");
+
+  window.addEventListener("scroll", () => {
+    if (window.scrollY > 100) {
+      header.classList.add("mostrar");
+    } else {
+      header.classList.remove("mostrar");
+    }
+  });
+</script>
+  
 </body>
 </html>
