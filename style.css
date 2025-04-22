@@ -29,6 +29,38 @@ header h1 {
   font-size: 1.8rem;
 }
 
+.galeria {
+  padding: 40px 20px;
+  background-color: #fff0f5;
+  text-align: center;
+}
+
+.galeria h2 {
+  color: #d81b60;
+  margin-bottom: 20px;
+  font-size: 2rem;
+}
+
+.imagens {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+.imagens img {
+  max-width: 300px;
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease;
+}
+
+.imagens img:hover {
+  transform: scale(1.05);
+}
+
 nav {
   margin-top: 10px;
   display: flex;
