@@ -29,27 +29,15 @@ header h1 {
   font-size: 1.8rem;
 }
 
-.menu-toggle {
+/* Esconde o menu por padrão */
+#nav-menu {
   display: none;
-  position: absolute;
-  top: 15px;
-  right: 20px;
-  font-size: 1.5rem;
-  background: none;
-  border: none;
-  color: #d81b60;
-  cursor: pointer;
-}
-
-nav {
-  margin-top: 10px;
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
+  flex-direction: column;
+  align-items: center;
   gap: 15px;
 }
 
-nav a {
+#nav-menu a {
   text-decoration: none;
   color: #d81b60;
   font-weight: bold;
@@ -58,141 +46,28 @@ nav a {
   transition: background-color 0.2s ease;
 }
 
-nav a:hover {
+#nav-menu a:hover {
   background-color: #f8bbd0;
 }
 
-@media (max-width: 600px) {
-  header h1 {
-    font-size: 1.4rem;
-  }
-
-  .menu-toggle {
-    display: block;
-  }
-
-  nav {
-    display: none;
-    flex-direction: column;
-    align-items: center;
-    gap: 10px;
-    margin-top: 50px;
-  }
-
-  nav.active {
-    display: flex;
-  }
-
-  nav a {
-    width: 100%;
-    max-width: 200px;
-    text-align: center;
-  }
-}
-
-.galeria {
-  padding: 40px 20px;
-  background-color: #fff0f5;
-  text-align: center;
-}
-
-.galeria h2 {
-  color: #d81b60;
-  margin-bottom: 20px;
-  font-size: 2rem;
-}
-
-.imagens {
+/* Exibe o menu quando a classe "mostrar" é adicionada */
+#nav-menu.mostrar {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 20px;
 }
 
-.imagens img {
-  max-width: 300px;
-  width: 100%;
-  height: auto;
-  border-radius: 10px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-  transition: transform 0.3s ease;
-}
-
-.imagens img:hover {
-  transform: scale(1.05);
-}
-
-.welcome {
-  text-align: center;
-  padding: 40px 20px;
-}
-
-.topics {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  padding: 20px;
-}
-
-.card {
-  background-color: #f8bbd0;
-  border-radius: 30px;
-  margin: 10px;
-  padding: 15px;
-  width: 150px;
-  text-align: center;
-  font-size: 20px;
-  cursor: pointer;
-  transition: 0.3s;
-}
-
-.card:hover {
-  background-color: #f06292;
-  color: white;
-}
-
-footer {
-  text-align: center;
-  padding: 20px;
-  background-color: #fce4ec;
-  position: relative;
-  z-index: 1;
-}
-
-footer a {
-  margin: 0 10px;
-  color: #ad1457;
-  text-decoration: none;
-}
-
+/* Estilos para o ícone de menu */
 .menu-toggle {
-  display: none;
-  font-size: 1.8rem;
+  font-size: 30px;
   cursor: pointer;
-  color: #d81b60;
-  position: absolute;
-  right: 20px;
-  top: 20px;
+  display: none;
 }
 
-@media (max-width: 768px) {
-  nav {
-    display: none;
-    flex-direction: column;
-    background-color: #fce4ec;
-    position: absolute;
-    top: 60px;
-    left: 0;
-    width: 100%;
-    text-align: center;
-    padding-bottom: 10px;
-  }
-
-  nav.ativo {
-    display: flex;
-  }
-
+/* Responsividade: mostra o ícone de menu em telas pequenas */
+@media (max-width: 600px) {
   .menu-toggle {
     display: block;
+    position: absolute;
+    top: 20px;
+    left: 20px;
   }
 }
