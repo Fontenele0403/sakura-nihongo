@@ -67,7 +67,7 @@ header h1 {
   .menu-toggle {
     display: block;
     position: absolute;
-    top: 40px;
+    top: 10px;
     left: 20px;
   }
 
