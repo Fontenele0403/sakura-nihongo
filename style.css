@@ -41,7 +41,7 @@ header h1 {
   text-decoration: none;
   color: #d81b60;
   font-weight: bold;
-  padding: 18px 12px;
+  padding: 8px 0px;
   border-radius: 18px;
   transition: background-color 0.2s ease;
 }
