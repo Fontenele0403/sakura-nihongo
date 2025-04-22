@@ -21,9 +21,21 @@ header h1 {
 }
 
 nav {
-  margin-top: 10px;
+  display: none;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-color: white; /* ou outra cor */
+  z-index: 1000;
+  padding: 10px 0;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  justify-content: center;
+  gap: 20px;
 }
 
+nav.mostrar {
+  display: flex;
+}
 nav a {
   margin: 0 10px;
   text-decoration: none;
