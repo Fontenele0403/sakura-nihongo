@@ -164,3 +164,35 @@ footer a {
   color: #ad1457;
   text-decoration: none;
 }
+
+.menu-toggle {
+  display: none;
+  font-size: 1.8rem;
+  cursor: pointer;
+  color: #d81b60;
+  position: absolute;
+  right: 20px;
+  top: 20px;
+}
+
+@media (max-width: 768px) {
+  nav {
+    display: none;
+    flex-direction: column;
+    background-color: #fce4ec;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    padding-bottom: 10px;
+  }
+
+  nav.ativo {
+    display: flex;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+}
