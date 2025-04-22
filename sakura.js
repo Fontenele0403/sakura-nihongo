@@ -51,13 +51,20 @@ initPetals();
 animate();
 
 <script>
-  let header = document.getElementById("header");
+  const header = document.getElementById("header");
+  const menuToggle = document.getElementById("menu-toggle");
+  const navMenu = document.getElementById("nav-menu");
 
-  window.addEventListener("scroll", function () {
+  window.addEventListener("scroll", () => {
     if (window.scrollY > 100) {
       header.classList.add("mostrar");
     } else {
       header.classList.remove("mostrar");
     }
   });
+
+  menuToggle.addEventListener("click", () => {
+    navMenu.classList.toggle("ativo");
+  });
 </script>
+
