@@ -70,4 +70,99 @@ header h1 {
     top: 20px;
     left: 20px;
   }
+
+  header h1 {
+    font-size: 1.4rem;
+  }
+
+  nav {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+  }
+
+  nav a {
+    text-align: center;
+    width: 100%;
+  }
+
+  nav.mostrar {
+    display: flex;
+  }
+}
+
+.welcome {
+  text-align: center;
+  padding: 40px 20px;
+}
+
+.galeria {
+  padding: 40px 20px;
+  background-color: #fff0f5;
+  text-align: center;
+}
+
+.galeria h2 {
+  color: #d81b60;
+  margin-bottom: 20px;
+  font-size: 2rem;
+}
+
+.imagens {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+.imagens img {
+  max-width: 300px;
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease;
+}
+
+.imagens img:hover {
+  transform: scale(1.05);
+}
+
+footer {
+  text-align: center;
+  padding: 20px;
+  background-color: #fce4ec;
+  position: relative;
+  z-index: 1;
+}
+
+footer a {
+  margin: 0 10px;
+  color: #ad1457;
+  text-decoration: none;
+}
+
+.topics {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 20px;
+}
+
+.card {
+  background-color: #f8bbd0;
+  border-radius: 30px;
+  margin: 10px;
+  padding: 15px;
+  width: 150px;
+  text-align: center;
+  font-size: 20px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.card:hover {
+  background-color: #f06292;
+  color: white;
 }
