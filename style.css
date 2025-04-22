@@ -34,7 +34,7 @@ header h1 {
   display: none;
   flex-direction: column;
   align-items: center;
-  gap: 15px;
+  gap: 35px;
 }
 
 #nav-menu a {
