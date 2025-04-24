@@ -21,19 +21,16 @@
   </script>
 </head>
 <body>
-
-  <!-- Bolinha de Perfil -->
   <div class="perfil-container">
     <div class="perfil-bolinha" onclick="toggleMenu()">
       <img src="img/perfil.jpg" alt="Perfil" />
     </div>
     <div class="perfil-menu" id="perfilMenu">
-      <button onclick="loginGoogle()">Google</button>
+      <button onclick="loginGoogle()">Entrar com Google</button>
       <button onclick="logout()">Sair</button>
     </div>
   </div>
 
-  <!-- Cabeçalho -->
   <header id="header">
     <h1>Sakura Nihongo</h1>
     <div class="menu-toggle" id="menu-toggle">&#9776;</div>
@@ -45,13 +42,11 @@
     </nav>
   </header>
 
-  <!-- Mensagem de boas-vindas -->
   <div class="welcome">
     <h2>ヤッホー Bem-vindo(a) ao seu portal de japonês!</h2>
     <p>Aprenda com leveza, disciplina e a beleza da língua japonesa.</p>
   </div>
 
-  <!-- Galeria -->
   <section id="galeria" class="galeria">
     <h2>Galeria Sakura Nihongo</h2>
     <div class="imagens">
@@ -61,7 +56,6 @@
     </div>
   </section>
 
-  <!-- Tópicos -->
   <section class="topics">
     <div class="card" id="hiragana">Hiragana</div>
     <div class="card" id="katakana">Katakana</div>
@@ -69,23 +63,18 @@
     <div class="card" id="videoaulas">Vídeo Aulas</div>
   </section>
 
-  <!-- Rodapé -->
   <footer>
     <a href="https://instagram.com" target="_blank">Instagram</a>
     <a href="https://wa.me/seunumerowhatsapp" target="_blank">WhatsApp</a>
     <a href="https://seusiteparceiro.com" target="_blank">Mais recursos</a>
   </footer>
 
-  <!-- Efeito de sakura -->
   <canvas id="sakura"></canvas>
   <script src="sakura.js"></script>
 
-  <!-- Scripts de interação -->
   <script>
+    // Header fixo ao rolar
     const header = document.getElementById("header");
-    const menuToggle = document.getElementById("menu-toggle");
-    const navMenu = document.getElementById("nav-menu");
-
     window.addEventListener("scroll", () => {
       if (window.scrollY > 100) {
         header.classList.add("mostrar");
@@ -94,14 +83,27 @@
       }
     });
 
+    // Menu responsivo
+    const menuToggle = document.getElementById("menu-toggle");
+    const navMenu = document.getElementById("nav-menu");
     menuToggle.addEventListener("click", () => {
-      navMenu.classList.toggle("mostrar");
+      navMenu.classList.toggle("ativo");
     });
 
+    // Menu de perfil
     function toggleMenu() {
-      document.getElementById("perfilMenu").classList.toggle("mostrar");
+      const menu = document.getElementById("perfilMenu");
+      menu.style.display = menu.style.display === "block" ? "none" : "block";
     }
 
+    document.addEventListener("click", function (e) {
+      const perfil = document.querySelector(".perfil-container");
+      if (!perfil.contains(e.target)) {
+        document.getElementById("perfilMenu").style.display = "none";
+      }
+    });
+
+    // Firebase Login Google
     const auth = firebase.auth();
     const provider = new firebase.auth.GoogleAuthProvider();
 
@@ -113,7 +115,8 @@
           document.querySelector(".perfil-bolinha img").src = user.photoURL;
         })
         .catch((error) => {
-          console.error("Erro ao fazer login:", error);
+          console.error("Erro ao fazer login:", error.message);
+          alert("Erro ao fazer login com Google.");
         });
     }
 
@@ -124,6 +127,5 @@
       });
     }
   </script>
-
 </body>
 </html>
