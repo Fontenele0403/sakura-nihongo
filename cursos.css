@@ -1,0 +1,152 @@
+/* Reset e fonte */
+body {
+  margin: 0;
+  font-family: 'Zen Kaku Gothic New', sans-serif;
+  background-color: #fff0f5;
+  color: #4a4a4a;
+}
+
+/* Cabeçalho fixo */
+header {
+  background-color: #fce4ec;
+  padding: 15px 0;
+  text-align: center;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+header h1 {
+  margin: 0;
+  font-size: 1.8rem;
+}
+
+header h1 a {
+  color: #d81b60;
+  text-decoration: none;
+}
+
+/* Menu de navegação */
+#nav-menu {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 10px;
+}
+
+#nav-menu a {
+  text-decoration: none;
+  color: #d81b60;
+  font-weight: bold;
+  padding: 8px 16px;
+  border-radius: 20px;
+  transition: background-color 0.2s ease;
+}
+
+#nav-menu a:hover {
+  background-color: #f8bbd0;
+}
+
+/* Ícone hamburguer responsivo */
+.menu-toggle {
+  font-size: 30px;
+  cursor: pointer;
+  display: none;
+  position: absolute;
+  top: 10px;
+  left: 20px;
+}
+
+@media (max-width: 600px) {
+  #nav-menu {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+  }
+
+  #nav-menu.mostrar {
+    display: flex;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+}
+
+/* Espaçamento abaixo do cabeçalho */
+.content {
+  padding: 100px 20px 40px;
+  text-align: center;
+}
+
+/* Cards de cursos */
+.course-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 30px;
+  padding: 30px 20px;
+}
+
+.course-card {
+  background-color: #ffffffaa;
+  border-radius: 20px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+  transition: transform 0.3s ease;
+}
+
+.course-card:hover {
+  transform: scale(1.03);
+}
+
+.course-card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+}
+
+.course-info {
+  padding: 20px;
+}
+
+.course-info h3 {
+  margin: 0 0 10px;
+  font-size: 1.4rem;
+  color: #d81b60;
+}
+
+.course-info p {
+  margin-bottom: 15px;
+  font-size: 0.95rem;
+}
+
+.course-info a {
+  text-decoration: none;
+  background-color: #fce4ec;
+  padding: 8px 16px;
+  border-radius: 30px;
+  font-weight: bold;
+  color: #d81b60;
+  transition: background-color 0.3s ease;
+}
+
+.course-info a:hover {
+  background-color: #f8bbd0;
+}
+
+/* Rodapé */
+footer {
+  text-align: center;
+  padding: 20px;
+  background-color: #fce4ec;
+  margin-top: 40px;
+}
+
+footer a {
+  margin: 0 10px;
+  color: #ad1457;
+  text-decoration: none;
+}
