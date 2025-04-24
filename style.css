@@ -102,7 +102,7 @@ header h1 {
 .welcome {
   text-align: center;
   padding: 100px 20px 40px;
-  background-color: rgba(255, 240, 245, 0.6);
+  background-color: transparent;
   animation: fadeIn 1.2s ease;
 }
 
