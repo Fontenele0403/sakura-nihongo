@@ -15,7 +15,7 @@ body {
 
 /* Cabeçalho fixo com transição ao rolar */
 header {
-  background-color: rgba(252, 228, 236, 0.9);
+  background-color: transparent;
   padding: 15px 0;
   text-align: center;
   position: fixed;
