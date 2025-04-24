@@ -1,58 +1,59 @@
-<script>
-// Sakura (pétalas animadas)
-const canvas = document.getElementById('sakura');
-const ctx = canvas.getContext('2d');
-let petals = [];
+// Inicializa o Firebase
+const firebaseConfig = {
+  apiKey: "AIzaSyCyPfO2z7oHVozMEMjiMn5WZXCcTVRkx3k",
+  authDomain: "sakura-nihongo.firebaseapp.com",
+  projectId: "sakura-nihongo",
+  storageBucket: "sakura-nihongo.appspot.com", // corrigido: ".app" para ".com"
+  messagingSenderId: "958897586137",
+  appId: "1:958897586137:web:57ca207fbc7b7e3845e3c8",
+  measurementId: "G-HBYT7CNCJ9"
+};
 
-canvas.width = window.innerWidth;
-canvas.height = window.innerHeight;
+firebase.initializeApp(firebaseConfig);
 
-class Petal {
-  constructor() {
-    this.x = Math.random() * canvas.width;
-    this.y = Math.random() * -canvas.height;
-    this.radius = Math.random() * 4 + 2;
-    this.speedY = Math.random() * 1 + 0.5;
-    this.speedX = Math.random() * 0.5 - 0.25;
-    this.opacity = Math.random() * 0.5 + 0.3;
-  }
+// Autenticação com Google
+const auth = firebase.auth();
+const provider = new firebase.auth.GoogleAuthProvider();
 
-  update() {
-    this.y += this.speedY;
-    this.x += this.speedX;
-    if (this.y > canvas.height) {
-      this.y = -10;
-      this.x = Math.random() * canvas.width;
-    }
-  }
-
-  draw() {
-    ctx.beginPath();
-    ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
-    ctx.fillStyle = `rgba(255, 182, 193, ${this.opacity})`;
-    ctx.fill();
-  }
+function loginGoogle() {
+  auth.signInWithPopup(provider)
+    .then((result) => {
+      const user = result.user;
+      alert(`Bem-vindo(a), ${user.displayName}`);
+      document.querySelector(".perfil-bolinha img").src = user.photoURL;
+    })
+    .catch((error) => {
+      console.error("Erro ao fazer login:", error);
+      alert("Erro ao fazer login com o Google.");
+    });
 }
 
-function initPetals() {
-  for (let i = 0; i < 100; i++) {
-    petals.push(new Petal());
+function logout() {
+  auth.signOut()
+    .then(() => {
+      alert("Você saiu da conta.");
+      document.querySelector(".perfil-bolinha img").src = "img/perfil.jpg";
+    })
+    .catch((error) => {
+      console.error("Erro ao sair:", error);
+    });
+}
+
+// Alterna menu de perfil
+function toggleMenu() {
+  const menu = document.getElementById("perfilMenu");
+  menu.style.display = menu.style.display === "block" ? "none" : "block";
+}
+
+// Fecha menu se clicar fora
+document.addEventListener("click", function (e) {
+  const perfil = document.querySelector(".perfil-container");
+  if (!perfil.contains(e.target)) {
+    document.getElementById("perfilMenu").style.display = "none";
   }
-}
+});
 
-function animate() {
-  ctx.clearRect(0, 0, canvas.width, canvas.height);
-  petals.forEach(petal => {
-    petal.update();
-    petal.draw();
-  });
-  requestAnimationFrame(animate);
-}
-
-initPetals();
-animate();
-
-// Menu fixo ao rolar
+// Mostrar header ao rolar
 const header = document.getElementById("header");
 window.addEventListener("scroll", () => {
   if (window.scrollY > 100) {
@@ -62,26 +63,10 @@ window.addEventListener("scroll", () => {
   }
 });
 
-// Toggle menu em mobile
+// Menu hamburguer
 const menuToggle = document.getElementById("menu-toggle");
 const navMenu = document.getElementById("nav-menu");
 
 menuToggle.addEventListener("click", () => {
   navMenu.classList.toggle("mostrar");
 });
-
-// Menu do perfil (avatar)
-function toggleMenu() {
-  const menu = document.getElementById("perfilMenu");
-  menu.style.display = menu.style.display === "block" ? "none" : "block";
-}
-
-document.addEventListener("click", function (e) {
-  const perfil = document.querySelector(".perfil-container");
-  const menu = document.getElementById("perfilMenu");
-
-  if (perfil && !perfil.contains(e.target)) {
-    menu.style.display = "none";
-  }
-});
-</script>
