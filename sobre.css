@@ -1,0 +1,152 @@
+/* Importação de fonte japonesa moderna */
+@import url('https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New&display=swap');
+
+/* Reset básico */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Zen Kaku Gothic New', sans-serif;
+  background: url('img/textura-arroz.jpg') repeat;
+  background-size: cover;
+  color: #333;
+  line-height: 1.7;
+}
+
+/* Cabeçalho */
+header {
+  background-color: #fff0f5;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 2px solid #f8bbd0;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+header h1 a {
+  text-decoration: none;
+  color: #d81b60;
+  font-size: 1.8rem;
+}
+
+.menu-toggle {
+  font-size: 1.8rem;
+  cursor: pointer;
+  display: none;
+}
+
+#nav-menu {
+  display: flex;
+  gap: 20px;
+}
+
+#nav-menu a {
+  text-decoration: none;
+  color: #ad1457;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+#nav-menu a:hover {
+  color: #880e4f;
+}
+
+/* Conteúdo da página */
+.sobre-container {
+  max-width: 900px;
+  margin: 80px auto 60px;
+  padding: 30px;
+  background-color: rgba(255, 240, 245, 0.92);
+  border-radius: 20px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+}
+
+.sobre-texto h2 {
+  color: #d81b60;
+  font-size: 2.4rem;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.sobre-texto h3 {
+  color: #ad1457;
+  margin-top: 30px;
+  font-size: 1.4rem;
+}
+
+.sobre-texto p {
+  font-size: 1.1rem;
+  margin-bottom: 16px;
+}
+
+.sobre-texto ul {
+  padding-left: 20px;
+  margin-top: 10px;
+}
+
+.sobre-texto ul li {
+  margin-bottom: 10px;
+}
+
+/* Botão CTA */
+.botao-cta {
+  display: inline-block;
+  margin-top: 25px;
+  padding: 12px 24px;
+  background-color: #d81b60;
+  color: #fff;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.botao-cta:hover {
+  background-color: #c2185b;
+}
+
+/* Rodapé */
+footer {
+  background-color: #fff0f5;
+  padding: 20px;
+  text-align: center;
+  border-top: 2px solid #f8bbd0;
+  margin-top: 60px;
+}
+
+footer a {
+  color: #d81b60;
+  text-decoration: none;
+  margin: 0 10px;
+}
+
+footer a:hover {
+  color: #880e4f;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  #nav-menu {
+    display: none;
+    flex-direction: column;
+    background-color: #fff0f5;
+    position: absolute;
+    top: 70px;
+    right: 20px;
+    border-radius: 10px;
+    padding: 10px;
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.1);
+  }
+
+  #nav-menu.mostrar {
+    display: flex;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+}
