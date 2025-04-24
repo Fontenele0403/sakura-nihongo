@@ -91,6 +91,31 @@
   <button onclick="logout()">Sair</button>
 </div>
 </div>
+
+  <script>
+  const auth = firebase.auth();
+  const provider = new firebase.auth.GoogleAuthProvider();
+
+  function loginGoogle() {
+    auth.signInWithPopup(provider)
+      .then((result) => {
+        const user = result.user;
+        alert(`Bem-vindo(a), ${user.displayName}`);
+        document.querySelector(".perfil-bolinha img").src = user.photoURL;
+      })
+      .catch((error) => {
+        console.error("Erro ao fazer login:", error);
+      });
+  }
+
+  function logout() {
+    auth.signOut().then(() => {
+      alert("Você saiu da conta.");
+      document.querySelector(".perfil-bolinha img").src = "img/perfil.jpg";
+    });
+  }
+</script>
+
   
 </body>
 </html>
