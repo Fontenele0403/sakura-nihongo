@@ -142,5 +142,12 @@
 <section id="sobre">...</section>
 <section id="contato">...</section>
 
+// Fechar menu ao clicar em um link
+document.querySelectorAll('#nav-menu a').forEach(link => {
+  link.addEventListener('click', () => {
+    navMenu.classList.remove('mostrar');
+  });
+});
+
 </body>
 </html>
