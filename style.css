@@ -32,6 +32,7 @@ header.mostrar {
 }
 
 header h1 {
+  font-family: 'Sawarabi Mincho', serif;
   margin: 0;
   color: #d81b60;
   font-size: 1.8rem;
