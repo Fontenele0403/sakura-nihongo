@@ -8,27 +8,35 @@
   <link href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New&display=swap" rel="stylesheet">
 
   <!-- Firebase SDK -->
-<script src="https://www.gstatic.com/firebasejs/11.6.0/firebase-app.js"></script>
-<script src="https://www.gstatic.com/firebasejs/11.6.0/firebase-auth.js"></script>
-<script>
-  const firebaseConfig = {
-    apiKey: "AIzaSyCyPfO2z7oHVozMEMjiMn5WZXCcTVRkx3k",
-    authDomain: "sakura-nihongo.firebaseapp.com",
-    projectId: "sakura-nihongo",
-    appId: "1:958897586137:web:57ca207fbc7b7e3845e3c8"
-  };
-
-  firebase.initializeApp(firebaseConfig);
-</script>
-
+  <script src="https://www.gstatic.com/firebasejs/11.6.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/11.6.0/firebase-auth.js"></script>
+  <script>
+    const firebaseConfig = {
+      apiKey: "AIzaSyCyPfO2z7oHVozMEMjiMn5WZXCcTVRkx3k",
+      authDomain: "sakura-nihongo.firebaseapp.com",
+      projectId: "sakura-nihongo",
+      appId: "1:958897586137:web:57ca207fbc7b7e3845e3c8"
+    };
+    firebase.initializeApp(firebaseConfig);
+  </script>
 </head>
 <body>
-  <div class="perfil-bolinha" onclick="loginGoogle()">
-  <img src="img/perfil.jpg" alt="Perfil" />
-</div>
+
+  <!-- Bolinha de Perfil -->
+  <div class="perfil-container">
+    <div class="perfil-bolinha" onclick="toggleMenu()">
+      <img src="img/perfil.jpg" alt="Perfil" />
+    </div>
+    <div class="perfil-menu" id="perfilMenu">
+      <button onclick="loginGoogle()">Entrar com Google</button>
+      <button onclick="logout()">Sair</button>
+    </div>
+  </div>
+
+  <!-- Cabeçalho -->
   <header id="header">
     <h1>Sakura Nihongo</h1>
-    <div class="menu-toggle" id="menu-toggle">&#9776;</div> <!-- Ícone do menu -->
+    <div class="menu-toggle" id="menu-toggle">&#9776;</div>
     <nav id="nav-menu">
       <a href="#inicio">Início</a>
       <a href="#cursos">Cursos</a>
@@ -37,11 +45,13 @@
     </nav>
   </header>
 
+  <!-- Mensagem de boas-vindas -->
   <div class="welcome">
     <h2>ヤッホー Bem-vindo(a) ao seu portal de japonês!</h2>
     <p>Aprenda com leveza, disciplina e a beleza da língua japonesa.</p>
   </div>
 
+  <!-- Galeria -->
   <section id="galeria" class="galeria">
     <h2>Galeria Sakura Nihongo</h2>
     <div class="imagens">
@@ -51,6 +61,7 @@
     </div>
   </section>
 
+  <!-- Tópicos -->
   <section class="topics">
     <div class="card" id="hiragana">Hiragana</div>
     <div class="card" id="katakana">Katakana</div>
@@ -58,17 +69,22 @@
     <div class="card" id="videoaulas">Vídeo Aulas</div>
   </section>
 
+  <!-- Rodapé -->
   <footer>
     <a href="https://instagram.com" target="_blank">Instagram</a>
     <a href="https://wa.me/seunumerowhatsapp" target="_blank">WhatsApp</a>
     <a href="https://seusiteparceiro.com" target="_blank">Mais recursos</a>
   </footer>
 
+  <!-- Efeito de sakura -->
   <canvas id="sakura"></canvas>
   <script src="sakura.js"></script>
 
+  <!-- Scripts de interação -->
   <script>
     const header = document.getElementById("header");
+    const menuToggle = document.getElementById("menu-toggle");
+    const navMenu = document.getElementById("nav-menu");
 
     window.addEventListener("scroll", () => {
       if (window.scrollY > 100) {
@@ -78,46 +94,36 @@
       }
     });
 
-    const menuToggle = document.getElementById("menu-toggle");
-    const navMenu = document.getElementById("nav-menu");
-
     menuToggle.addEventListener("click", () => {
       navMenu.classList.toggle("mostrar");
     });
-  </script>
-  <div class="perfil-container">
-  <div class="perfil-bolinha" onclick="toggleMenu()">
-    <img src="img/perfil.jpg" alt="Perfil" />
-  </div>
-  <div class="perfil-menu" id="perfilMenu">
-  <button onclick="loginGoogle()">Entrar com Google</button>
-  <button onclick="logout()">Sair</button>
-</div>
-</div>
 
-  <script>
-  const auth = firebase.auth();
-  const provider = new firebase.auth.GoogleAuthProvider();
+    function toggleMenu() {
+      document.getElementById("perfilMenu").classList.toggle("mostrar");
+    }
 
-  function loginGoogle() {
-    auth.signInWithPopup(provider)
-      .then((result) => {
-        const user = result.user;
-        alert(`Bem-vindo(a), ${user.displayName}`);
-        document.querySelector(".perfil-bolinha img").src = user.photoURL;
-      })
-      .catch((error) => {
-        console.error("Erro ao fazer login:", error);
+    const auth = firebase.auth();
+    const provider = new firebase.auth.GoogleAuthProvider();
+
+    function loginGoogle() {
+      auth.signInWithPopup(provider)
+        .then((result) => {
+          const user = result.user;
+          alert(`Bem-vindo(a), ${user.displayName}`);
+          document.querySelector(".perfil-bolinha img").src = user.photoURL;
+        })
+        .catch((error) => {
+          console.error("Erro ao fazer login:", error);
+        });
+    }
+
+    function logout() {
+      auth.signOut().then(() => {
+        alert("Você saiu da conta.");
+        document.querySelector(".perfil-bolinha img").src = "img/perfil.jpg";
       });
-  }
-
-  function logout() {
-    auth.signOut().then(() => {
-      alert("Você saiu da conta.");
-      document.querySelector(".perfil-bolinha img").src = "img/perfil.jpg";
-    });
-  }
-</script>
+    }
+  </script>
 
 </body>
 </html>
