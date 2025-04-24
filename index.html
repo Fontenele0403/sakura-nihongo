@@ -11,14 +11,18 @@
   <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js"></script>
   <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-auth.js"></script>
   <script>
+    // Definir a configuração do Firebase
     const firebaseConfig = {
       apiKey: "AIzaSyCyPfO2z7oHVozMEMjiMn5WZXCcTVRkx3k",
       authDomain: "sakura-nihongo.firebaseapp.com",
       projectId: "sakura-nihongo",
       appId: "1:958897586137:web:57ca207fbc7b7e3845e3c8"
     };
-    // Inicializando o Firebase
+
+    // Inicializar o Firebase
     const app = firebase.initializeApp(firebaseConfig);
+    
+    // Agora que o Firebase foi inicializado, crie a referência ao auth.
     const auth = firebase.auth();
     const provider = new firebase.auth.GoogleAuthProvider();
   </script>
