@@ -146,6 +146,16 @@ document.querySelectorAll('#nav-menu a').forEach(link => {
     navMenu.classList.remove('mostrar');
   });
 });
+
+document.addEventListener('click', function(event) {
+  const navMenu = document.getElementById('nav-menu');
+  const menuToggle = document.getElementById('menu-toggle');
+
+  // Verifica se o clique foi fora do menu e do ícone do menu (menuToggle)
+  if (!navMenu.contains(event.target) && !menuToggle.contains(event.target)) {
+    navMenu.classList.remove('mostrar'); // Fecha o menu
+  }
+});
   </script>
 </body>
 </html>
