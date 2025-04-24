@@ -3,7 +3,7 @@ const firebaseConfig = {
   apiKey: "AIzaSyCyPfO2z7oHVozMEMjiMn5WZXCcTVRkx3k",
   authDomain: "sakura-nihongo.firebaseapp.com",
   projectId: "sakura-nihongo",
-  storageBucket: "sakura-nihongo.appspot.com", // corrigido: ".app" para ".com"
+  storageBucket: "sakura-nihongo.firebasestorage.app", // corrigido: ".app" para ".com"
   messagingSenderId: "958897586137",
   appId: "1:958897586137:web:57ca207fbc7b7e3845e3c8",
   measurementId: "G-HBYT7CNCJ9"
