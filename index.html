@@ -8,9 +8,11 @@
   <link href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New&display=swap" rel="stylesheet">
 
   <!-- Firebase SDK -->
-  <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-auth.js"></script>
-  <script>
+  <script type="module">
+    // Importar os módulos necessários do Firebase
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js";
+    import { getAuth, GoogleAuthProvider, signInWithPopup, signOut } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-auth.js";
+
     // Definir a configuração do Firebase
     const firebaseConfig = {
       apiKey: "AIzaSyCyPfO2z7oHVozMEMjiMn5WZXCcTVRkx3k",
@@ -20,11 +22,34 @@
     };
 
     // Inicializar o Firebase
-    const app = firebase.initializeApp(firebaseConfig);
-    
-    // Agora que o Firebase foi inicializado, crie a referência ao auth.
-    const auth = firebase.auth();
-    const provider = new firebase.auth.GoogleAuthProvider();
+    const app = initializeApp(firebaseConfig);
+
+    // Obter a instância de autenticação
+    const auth = getAuth(app);
+    const provider = new GoogleAuthProvider();
+
+    // Função para fazer login com Google
+    window.loginGoogle = function() {
+      console.log('Tentando fazer login com Google...');
+      signInWithPopup(auth, provider)
+        .then((result) => {
+          const user = result.user;
+          alert(`Bem-vindo(a), ${user.displayName}`);
+          document.querySelector(".perfil-bolinha img").src = user.photoURL || "img/perfil.jpg";
+        })
+        .catch((error) => {
+          console.error("Erro ao fazer login:", error.message);
+          alert("Erro ao fazer login com Google.");
+        });
+    }
+
+    // Função para logout
+    window.logout = function() {
+      signOut(auth).then(() => {
+        alert("Você saiu da conta.");
+        document.querySelector(".perfil-bolinha img").src = "img/perfil.jpg";
+      });
+    }
   </script>
 </head>
 <body>
@@ -109,28 +134,6 @@
         document.getElementById("perfilMenu").style.display = "none";
       }
     });
-
-    // Firebase Login Google
-    function loginGoogle() {
-      console.log('Tentando fazer login com Google...');
-      auth.signInWithPopup(provider)
-        .then((result) => {
-          const user = result.user;
-          alert(`Bem-vindo(a), ${user.displayName}`);
-          document.querySelector(".perfil-bolinha img").src = user.photoURL || "img/perfil.jpg";
-        })
-        .catch((error) => {
-          console.error("Erro ao fazer login:", error.message);
-          alert("Erro ao fazer login com Google.");
-        });
-    }
-
-    function logout() {
-      auth.signOut().then(() => {
-        alert("Você saiu da conta.");
-        document.querySelector(".perfil-bolinha img").src = "img/perfil.jpg";
-      });
-    }
   </script>
 </body>
 </html>
