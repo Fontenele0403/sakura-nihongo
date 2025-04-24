@@ -3,13 +3,22 @@ body {
   margin: 0;
   font-family: 'Zen Kaku Gothic New', sans-serif;
   background: linear-gradient(to bottom, #fff0f5, #ffe4e1);
+  background-image: url('img/folha-arroz.png');
+  background-size: cover;
+  background-attachment: fixed;
   color: #4a4a4a;
   overflow-x: hidden;
 }
 
+/* Animação de entrada suave */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
 /* Cabeçalho fixo com transição ao rolar */
 header {
-  background-color: #fce4ec;
+  background-color: rgba(252, 228, 236, 0.9);
   padding: 15px 0;
   text-align: center;
   position: fixed;
@@ -95,15 +104,17 @@ header h1 {
 /* Seção de boas-vindas */
 .welcome {
   text-align: center;
-  padding: 80px 20px 40px;
-  background-color: transparent;
+  padding: 100px 20px 40px;
+  background-color: rgba(255, 240, 245, 0.6);
+  animation: fadeIn 1.2s ease;
 }
 
-/* Seção da galeria de imagens */
+/* Seção da galeria */
 .galeria {
   padding: 40px 20px;
-  background-color: transparent;
+  background-color: rgba(255, 240, 245, 0.3);
   text-align: center;
+  animation: fadeIn 1.5s ease;
 }
 
 .galeria h2 {
@@ -113,17 +124,16 @@ header h1 {
 }
 
 .imagens {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 20px;
+  justify-content: center;
 }
 
 .imagens img {
-  max-width: 300px;
   width: 100%;
   height: auto;
-  border-radius: 20px;
+  border-radius: 10px;
   box-shadow: 0 4px 10px rgba(0,0,0,0.1);
   transition: transform 0.3s ease;
 }
@@ -132,11 +142,10 @@ header h1 {
   transform: scale(1.05);
 }
 
-/* Rodapé */
 footer {
   text-align: center;
   padding: 20px;
-  background-color: #fce4ec;
+  background-color: rgba(252, 228, 236, 0.9);
   position: relative;
   z-index: 1;
 }
@@ -147,35 +156,31 @@ footer a {
   text-decoration: none;
 }
 
-/* Cards de tópicos */
 .topics {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 20px;
   padding: 20px;
+  animation: fadeIn 1.7s ease;
 }
 
 .card {
   background-color: #f8bbd0;
   border-radius: 30px;
-  margin: 10px;
   padding: 15px;
-  width: 150px;
   text-align: center;
   font-size: 20px;
   cursor: pointer;
-  transition: 0.3s;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease, background-color 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
 }
 
 .card:hover {
   background-color: #f06292;
   color: white;
-  transform: scale(1.05);
-  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+  transform: translateY(-5px);
 }
 
-/* Container do ícone de perfil */
 .perfil-container {
   position: fixed;
   top: 10px;
@@ -209,6 +214,7 @@ footer a {
   padding: 10px;
   border-radius: 8px;
   min-width: 160px;
+  animation: fadeIn 0.4s ease;
 }
 
 .perfil-menu.mostrar {
@@ -217,29 +223,18 @@ footer a {
 
 .perfil-menu button {
   display: block;
-  background: none;
+  background-color: transparent;
   border: none;
-  padding: 8px 12px;
+  padding: 10px 12px;
   width: 100%;
   text-align: left;
   cursor: pointer;
   font-weight: bold;
   color: #d81b60;
-  border-radius: 8px;
+  border-radius: 6px;
+  transition: background-color 0.2s ease;
 }
 
 .perfil-menu button:hover {
   background-color: #fce4ec;
-}
-
-.perfil-menu button:first-child {
-  background-color: #d81b60;
-  color: white;
-  font-weight: bold;
-  margin-bottom: 5px;
-  transition: background-color 0.3s ease;
-}
-
-.perfil-menu button:first-child:hover {
-  background-color: #ad1457;
 }
