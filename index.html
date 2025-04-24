@@ -67,8 +67,16 @@
       navMenu.classList.toggle("mostrar");
     });
   </script>
-  <div class="perfil-bolinha">
+  <div class="perfil-container">
+  <div class="perfil-bolinha" onclick="toggleMenu()">
     <img src="img/perfil.jpg" alt="Perfil" />
   </div>
+  <div class="perfil-menu" id="perfilMenu">
+    <a href="#meu-perfil">Meu Perfil</a>
+    <a href="#config">Configurações</a>
+    <a href="#sair">Sair</a>
+  </div>
+</div>
+  
 </body>
 </html>
