@@ -140,7 +140,12 @@
         document.getElementById("perfilMenu").style.display = "none";
       }
     });
-
+// Fechar menu ao clicar em um link
+document.querySelectorAll('#nav-menu a').forEach(link => {
+  link.addEventListener('click', () => {
+    navMenu.classList.remove('mostrar');
+  });
+});
   </script>
 </body>
 </html>
