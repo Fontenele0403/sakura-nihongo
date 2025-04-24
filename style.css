@@ -1,35 +1,37 @@
+/* Estilo base da página */
 body {
   margin: 0;
   font-family: 'Zen Kaku Gothic New', sans-serif;
-  background-color: #fff0f5;
-  color: #4a4a4a;
-  overflow-x: hidden;
+  background-color: #fff0f5; /* Rosa claro */
+  color: #4a4a4a; /* Cinza escuro */
+  overflow-x: hidden; /* Evita rolagem lateral */
 }
 
+/* Cabeçalho fixo com transição ao rolar */
 header {
   background-color: #fce4ec;
-  padding: 15px 0px;
+  padding: 15px 0;
   text-align: center;
   position: fixed;
   top: 0;
   width: 100%;
   z-index: 1000;
-  transform: translateY(-100%);
+  transform: translateY(-100%); /* Esconde inicialmente */
   transition: transform 0.3s ease-in-out;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 header.mostrar {
-  transform: translateY(0);
+  transform: translateY(0); /* Mostra ao rolar */
 }
 
 header h1 {
   margin: 0;
-  color: #d81b60;
+  color: #d81b60; /* Rosa escuro */
   font-size: 1.8rem;
 }
 
-/* Esconde o menu por padrão */
+/* Menu de navegação oculto por padrão */
 #nav-menu {
   display: none;
   flex-direction: column;
@@ -37,6 +39,7 @@ header h1 {
   gap: 15px;
 }
 
+/* Links de navegação */
 #nav-menu a {
   text-decoration: none;
   color: #d81b60;
@@ -48,22 +51,21 @@ header h1 {
 }
 
 #nav-menu a:hover {
-  background-color: #f8bbd0;
+  background-color: #f8bbd0; /* Hover suave */
 }
 
-/* Exibe o menu quando a classe "mostrar" é adicionada */
 #nav-menu.mostrar {
-  display: flex;
+  display: flex; /* Mostra quando a classe "mostrar" é aplicada */
 }
 
-/* Estilos para o ícone de menu */
+/* Ícone do menu hamburguer */
 .menu-toggle {
   font-size: 30px;
   cursor: pointer;
   display: none;
 }
 
-/* Responsividade: mostra o ícone de menu em telas pequenas */
+/* Responsividade para telas menores */
 @media (max-width: 600px) {
   .menu-toggle {
     display: block;
@@ -84,8 +86,8 @@ header h1 {
   }
 
   nav a {
-    text-align: center;
     width: 100%;
+    text-align: center;
   }
 
   nav.mostrar {
@@ -93,11 +95,13 @@ header h1 {
   }
 }
 
+/* Seção de boas-vindas */
 .welcome {
   text-align: center;
-  padding: 40px 20px;
+  padding: 80px 20px 40px; /* Inclui espaço extra por causa do header fixo */
 }
 
+/* Seção da galeria de imagens */
 .galeria {
   padding: 40px 20px;
   background-color: #fff0f5;
@@ -110,6 +114,7 @@ header h1 {
   font-size: 2rem;
 }
 
+/* Container de imagens */
 .imagens {
   display: flex;
   flex-wrap: wrap;
@@ -127,9 +132,10 @@ header h1 {
 }
 
 .imagens img:hover {
-  transform: scale(1.05);
+  transform: scale(1.05); /* Efeito de zoom */
 }
 
+/* Rodapé */
 footer {
   text-align: center;
   padding: 20px;
@@ -144,6 +150,7 @@ footer a {
   text-decoration: none;
 }
 
+/* Cards de tópicos */
 .topics {
   display: flex;
   flex-wrap: wrap;
@@ -168,6 +175,7 @@ footer a {
   color: white;
 }
 
+/* Container do ícone de perfil */
 .perfil-container {
   position: fixed;
   top: 10px;
@@ -175,6 +183,7 @@ footer a {
   z-index: 1100;
 }
 
+/* Bolinha com a imagem do perfil */
 .perfil-bolinha {
   width: 40px;
   height: 40px;
@@ -191,6 +200,7 @@ footer a {
   object-fit: cover;
 }
 
+/* Menu suspenso do perfil */
 .perfil-menu {
   display: none;
   position: absolute;
@@ -200,10 +210,11 @@ footer a {
   box-shadow: 0 2px 10px rgba(0,0,0,0.2);
   padding: 10px;
   border-radius: 8px;
+  min-width: 160px;
 }
 
 .perfil-menu.mostrar {
-  display: block;
+  display: block; /* Mostra quando necessário */
 }
 
 .perfil-menu button {
