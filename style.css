@@ -104,7 +104,7 @@ header h1 {
 /* Seção da galeria de imagens */
 .galeria {
   padding: 40px 20px;
-  background-color: #fff0f5;
+  background-color: transparent;
   text-align: center;
 }
 
