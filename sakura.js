@@ -1,3 +1,5 @@
+<script>
+// Sakura (pétalas animadas)
 const canvas = document.getElementById('sakura');
 const ctx = canvas.getContext('2d');
 let petals = [];
@@ -50,23 +52,25 @@ function animate() {
 initPetals();
 animate();
 
-<script>
-  const header = document.getElementById("header");
-  const menuToggle = document.getElementById("menu-toggle");
-  const navMenu = document.getElementById("nav-menu");
+// Menu fixo ao rolar
+const header = document.getElementById("header");
+window.addEventListener("scroll", () => {
+  if (window.scrollY > 100) {
+    header.classList.add("mostrar");
+  } else {
+    header.classList.remove("mostrar");
+  }
+});
 
-  window.addEventListener("scroll", () => {
-    if (window.scrollY > 100) {
-      header.classList.add("mostrar");
-    } else {
-      header.classList.remove("mostrar");
-    }
-  });
+// Toggle menu em mobile
+const menuToggle = document.getElementById("menu-toggle");
+const navMenu = document.getElementById("nav-menu");
 
-  menuToggle.addEventListener("click", () => {
-    navMenu.classList.toggle("ativo");
-  });
+menuToggle.addEventListener("click", () => {
+  navMenu.classList.toggle("mostrar");
+});
 
+// Menu do perfil (avatar)
 function toggleMenu() {
   const menu = document.getElementById("perfilMenu");
   menu.style.display = menu.style.display === "block" ? "none" : "block";
@@ -74,10 +78,10 @@ function toggleMenu() {
 
 document.addEventListener("click", function (e) {
   const perfil = document.querySelector(".perfil-container");
-  if (!perfil.contains(e.target)) {
-    document.getElementById("perfilMenu").style.display = "none";
+  const menu = document.getElementById("perfilMenu");
+
+  if (perfil && !perfil.contains(e.target)) {
+    menu.style.display = "none";
   }
 });
-
 </script>
-
