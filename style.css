@@ -2,9 +2,9 @@
 body {
   margin: 0;
   font-family: 'Zen Kaku Gothic New', sans-serif;
-  background-color: #fff0f5; /* Rosa claro */
-  color: #4a4a4a; /* Cinza escuro */
-  overflow-x: hidden; /* Evita rolagem lateral */
+  background: linear-gradient(to bottom, #fff0f5, #ffe4e1);
+  color: #4a4a4a;
+  overflow-x: hidden;
 }
 
 /* Cabeçalho fixo com transição ao rolar */
@@ -16,22 +16,22 @@ header {
   top: 0;
   width: 100%;
   z-index: 1000;
-  transform: translateY(-100%); /* Esconde inicialmente */
+  transform: translateY(-100%);
   transition: transform 0.3s ease-in-out;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 header.mostrar {
-  transform: translateY(0); /* Mostra ao rolar */
+  transform: translateY(0);
 }
 
 header h1 {
   margin: 0;
-  color: #d81b60; /* Rosa escuro */
+  color: #d81b60;
   font-size: 1.8rem;
 }
 
-/* Menu de navegação oculto por padrão */
+/* Menu de navegação */
 #nav-menu {
   display: none;
   flex-direction: column;
@@ -39,7 +39,6 @@ header h1 {
   gap: 15px;
 }
 
-/* Links de navegação */
 #nav-menu a {
   text-decoration: none;
   color: #d81b60;
@@ -51,21 +50,19 @@ header h1 {
 }
 
 #nav-menu a:hover {
-  background-color: #f8bbd0; /* Hover suave */
+  background-color: #f8bbd0;
 }
 
 #nav-menu.mostrar {
-  display: flex; /* Mostra quando a classe "mostrar" é aplicada */
+  display: flex;
 }
 
-/* Ícone do menu hamburguer */
 .menu-toggle {
   font-size: 30px;
   cursor: pointer;
   display: none;
 }
 
-/* Responsividade para telas menores */
 @media (max-width: 600px) {
   .menu-toggle {
     display: block;
@@ -98,7 +95,8 @@ header h1 {
 /* Seção de boas-vindas */
 .welcome {
   text-align: center;
-  padding: 80px 20px 40px; /* Inclui espaço extra por causa do header fixo */
+  padding: 80px 20px 40px;
+  background-color: transparent;
 }
 
 /* Seção da galeria de imagens */
@@ -114,7 +112,6 @@ header h1 {
   font-size: 2rem;
 }
 
-/* Container de imagens */
 .imagens {
   display: flex;
   flex-wrap: wrap;
@@ -126,13 +123,13 @@ header h1 {
   max-width: 300px;
   width: 100%;
   height: auto;
-  border-radius: 10px;
+  border-radius: 20px;
   box-shadow: 0 4px 10px rgba(0,0,0,0.1);
   transition: transform 0.3s ease;
 }
 
 .imagens img:hover {
-  transform: scale(1.05); /* Efeito de zoom */
+  transform: scale(1.05);
 }
 
 /* Rodapé */
@@ -168,11 +165,14 @@ footer a {
   font-size: 20px;
   cursor: pointer;
   transition: 0.3s;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
 }
 
 .card:hover {
   background-color: #f06292;
   color: white;
+  transform: scale(1.05);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
 }
 
 /* Container do ícone de perfil */
@@ -183,7 +183,6 @@ footer a {
   z-index: 1100;
 }
 
-/* Bolinha com a imagem do perfil */
 .perfil-bolinha {
   width: 40px;
   height: 40px;
@@ -200,7 +199,6 @@ footer a {
   object-fit: cover;
 }
 
-/* Menu suspenso do perfil */
 .perfil-menu {
   display: none;
   position: absolute;
@@ -214,7 +212,7 @@ footer a {
 }
 
 .perfil-menu.mostrar {
-  display: block; /* Mostra quando necessário */
+  display: block;
 }
 
 .perfil-menu button {
@@ -227,22 +225,21 @@ footer a {
   cursor: pointer;
   font-weight: bold;
   color: #d81b60;
+  border-radius: 8px;
 }
 
 .perfil-menu button:hover {
   background-color: #fce4ec;
 }
 
-/* ...todo o seu CSS acima... */
-
-/* 🌸 Canvas das pétalas de sakura */
-#sakura {
-  position: fixed;
-  top: 0;
-  left: 0;
-  pointer-events: none;
-  z-index: -1;
-  width: 100vw;
-  height: 100vh;
+.perfil-menu button:first-child {
+  background-color: #d81b60;
+  color: white;
+  font-weight: bold;
+  margin-bottom: 5px;
+  transition: background-color 0.3s ease;
 }
 
+.perfil-menu button:first-child:hover {
+  background-color: #ad1457;
+}
