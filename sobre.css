@@ -116,11 +116,12 @@ footer a {
   text-decoration: none;
 }
 
-/* Sakura petals canvas fixo no fundo */
 #sakuraCanvas {
   position: fixed;
   top: 0;
   left: 0;
-  pointer-events: none;
-  z-index: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -1; /* isso garante que fique atrás de todo o conteúdo */
+  pointer-events: none; /* para não interferir nos cliques */
 }
