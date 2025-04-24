@@ -66,5 +66,18 @@ animate();
   menuToggle.addEventListener("click", () => {
     navMenu.classList.toggle("ativo");
   });
+
+function toggleMenu() {
+  const menu = document.getElementById("perfilMenu");
+  menu.style.display = menu.style.display === "block" ? "none" : "block";
+}
+
+document.addEventListener("click", function (e) {
+  const perfil = document.querySelector(".perfil-container");
+  if (!perfil.contains(e.target)) {
+    document.getElementById("perfilMenu").style.display = "none";
+  }
+});
+
 </script>
 
