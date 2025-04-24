@@ -108,11 +108,13 @@
     const provider = new firebase.auth.GoogleAuthProvider();
 
     function loginGoogle() {
+      console.log('Tentando fazer login com Google...');
       auth.signInWithPopup(provider)
         .then((result) => {
           const user = result.user;
           alert(`Bem-vindo(a), ${user.displayName}`);
-          document.querySelector(".perfil-bolinha img").src = user.photoURL;
+          document.querySelector(".perfil-bolinha img").src = user.photoURL || "img/perfil.jpg";
+          // Você pode adicionar mais código aqui para salvar as informações do usuário, como em um banco de dados, se necessário.
         })
         .catch((error) => {
           console.error("Erro ao fazer login:", error.message);
