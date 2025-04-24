@@ -1,30 +1,24 @@
-/* Importação de fonte japonesa moderna */
-@import url('https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New&display=swap');
-
-/* Reset básico */
-* {
+/* Reset e base */
+body {
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
-}
-
-body {
   font-family: 'Zen Kaku Gothic New', sans-serif;
-  background: url('img/textura-arroz.jpg') repeat;
-  background-size: cover;
-  color: #333;
-  line-height: 1.7;
+  background-color: #fff0f5; /* Rosa claro */
+  color: #4a4a4a;
+  line-height: 1.6;
+  overflow-x: hidden;
 }
 
-/* Cabeçalho */
+/* Cabeçalho fixo */
 header {
-  background-color: #fff0f5;
-  padding: 20px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  border-bottom: 2px solid #f8bbd0;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  background-color: #fce4ec;
+  padding: 15px 0;
+  text-align: center;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 
 header h1 a {
@@ -33,120 +27,100 @@ header h1 a {
   font-size: 1.8rem;
 }
 
-.menu-toggle {
-  font-size: 1.8rem;
-  cursor: pointer;
-  display: none;
-}
-
-#nav-menu {
+nav {
+  margin-top: 10px;
   display: flex;
+  justify-content: center;
   gap: 20px;
 }
 
-#nav-menu a {
+nav a {
   text-decoration: none;
-  color: #ad1457;
-  font-weight: 500;
-  transition: color 0.3s ease;
+  color: #d81b60;
+  font-weight: bold;
+  padding: 8px 16px;
+  border-radius: 20px;
+  transition: background-color 0.3s ease;
 }
 
-#nav-menu a:hover {
-  color: #880e4f;
+nav a:hover {
+  background-color: #f8bbd0;
+}
+
+/* Botão de menu hamburguer para mobile */
+.menu-toggle {
+  display: none;
+  font-size: 30px;
+  position: absolute;
+  top: 15px;
+  left: 20px;
+  cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: block;
+  }
+
+  nav {
+    flex-direction: column;
+    display: none;
+    background-color: #fce4ec;
+    position: absolute;
+    top: 70px;
+    left: 0;
+    width: 100%;
+    padding: 10px 0;
+    z-index: 1001;
+  }
+
+  nav.mostrar {
+    display: flex;
+  }
 }
 
 /* Conteúdo da página */
-.sobre-container {
-  max-width: 900px;
-  margin: 80px auto 60px;
-  padding: 30px;
-  background-color: rgba(255, 240, 245, 0.92);
-  border-radius: 20px;
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+main {
+  padding: 100px 20px 40px;
+  max-width: 1000px;
+  margin: 0 auto;
+  background-color: rgba(255, 255, 255, 0.8);
+  border-radius: 12px;
+  box-shadow: 0 0 20px rgba(0,0,0,0.05);
 }
 
-.sobre-texto h2 {
+main h2 {
   color: #d81b60;
-  font-size: 2.4rem;
+  font-size: 2rem;
   margin-bottom: 20px;
   text-align: center;
 }
 
-.sobre-texto h3 {
-  color: #ad1457;
-  margin-top: 30px;
-  font-size: 1.4rem;
-}
-
-.sobre-texto p {
-  font-size: 1.1rem;
-  margin-bottom: 16px;
-}
-
-.sobre-texto ul {
-  padding-left: 20px;
-  margin-top: 10px;
-}
-
-.sobre-texto ul li {
-  margin-bottom: 10px;
-}
-
-/* Botão CTA */
-.botao-cta {
-  display: inline-block;
-  margin-top: 25px;
-  padding: 12px 24px;
-  background-color: #d81b60;
-  color: #fff;
-  border-radius: 30px;
-  text-decoration: none;
-  font-weight: bold;
-  transition: background-color 0.3s ease;
-}
-
-.botao-cta:hover {
-  background-color: #c2185b;
+main p {
+  margin-bottom: 20px;
+  text-align: justify;
+  text-indent: 30px;
 }
 
 /* Rodapé */
 footer {
-  background-color: #fff0f5;
-  padding: 20px;
   text-align: center;
-  border-top: 2px solid #f8bbd0;
+  padding: 20px;
+  background-color: #fce4ec;
   margin-top: 60px;
 }
 
 footer a {
-  color: #d81b60;
-  text-decoration: none;
+  color: #ad1457;
   margin: 0 10px;
+  text-decoration: none;
 }
 
-footer a:hover {
-  color: #880e4f;
-}
-
-/* Responsividade */
-@media (max-width: 768px) {
-  #nav-menu {
-    display: none;
-    flex-direction: column;
-    background-color: #fff0f5;
-    position: absolute;
-    top: 70px;
-    right: 20px;
-    border-radius: 10px;
-    padding: 10px;
-    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.1);
-  }
-
-  #nav-menu.mostrar {
-    display: flex;
-  }
-
-  .menu-toggle {
-    display: block;
-  }
+/* Sakura petals canvas fixo no fundo */
+#sakuraCanvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  z-index: 0;
 }
