@@ -176,14 +176,17 @@ footer a {
 }
 
 .perfil-bolinha {
-  position: absolute;
+  position: fixed;
   top: 15px;
-  right: 20px;
+  right: 15px;
   width: 40px;
   height: 40px;
   border-radius: 50%;
   overflow: hidden;
   cursor: pointer;
+  z-index: 1100; /* acima do header */
+  background-color: white;
+  box-shadow: 0 0 8px rgba(0,0,0,0.1);
 }
 
 .perfil-bolinha img {
