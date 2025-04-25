@@ -113,7 +113,7 @@ header h1 {
 /* Seção de boas-vindas */
 .welcome {
   text-align: center;
-  padding: 100px 20px 40px;
+  padding: 200px 20px 40px;
   background-color: transparent;
   animation: fadeIn 1.2s ease;
 }
