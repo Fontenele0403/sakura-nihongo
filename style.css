@@ -121,8 +121,9 @@ header h1 {
 /* Seção da galeria */
 .galeria {
   padding: 40px 20px;
-  background-color: rgba(252, 228, 236, 0.8);
+  background-color: transparent);
   text-align: center;
+  color: #d81b60;
   animation: fadeIn 1.5s ease;
 }
 
